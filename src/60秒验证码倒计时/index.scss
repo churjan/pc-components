@@ -1,0 +1,11 @@
+.countdown{
+  width: 150px;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid #000;
+  &.ban{
+    color:#999;
+    border-color:#999;
+    cursor: not-allowed;
+  }
+}
