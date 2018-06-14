@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding-left: 400px;
+}
+.clip {
+  position: absolute;
+  clip: rect(0 0 0 0);
+}
+.btn {
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 20px;
+  border:none;
+  cursor: pointer;
+  &.upload-btn{
+    background-color: #00a1ee;
+  }
+  &.generate-btn{
+    background-color: #55a14e;
+  }
+}
+.poster {
+  position: relative;
+  width: 600px;
+  height: 900px;
+  background: url("./poster.jpg") center/100% no-repeat;
+  .pic {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: move;
+    .dot{
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: blue;
+      border-radius: 50%;
+      right: -15px;
+      bottom: -15px;
+    }
+  }
+}
