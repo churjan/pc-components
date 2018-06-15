@@ -71,6 +71,36 @@ function scale(){
 
   }
 }
+
+//以宽为基准，海报高度大于宽度的时候用
+function scale2(){
+  dot.onmousedown=function(e) {
+    console.log('dot')
+    e.stopPropagation();
+    let startY = e.clientY,
+        picY = pic.offsetTop,
+        picWidth = pic.offsetWidth,
+        picHeight = pic.offsetHeight,
+        ratio=picWidth/picHeight;
+    document.onmousemove=function(e){
+      let moveY = e.clientY,
+          resultY = picY + moveY - startY,
+          resultHeight=picHeight+ moveY - startY;
+          if (resultHeight < 0) {
+            resultHeight = 0;
+          } else if (resultY > posterHeight- picHeight) {
+            resultHeight = picHeight + posterHeight- picHeight-picY;
+          }
+
+          pic.style.height = resultHeight + "px";
+          pic.style.width = resultHeight*ratio + "px";
+    }
+  }
+  document.onmouseup = function () {
+    document.onmousemove = null;
+
+  }
+}
 window.onload=function(){
   drag();
   scale();
