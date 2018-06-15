@@ -89,6 +89,7 @@ uploadFileBtn.addEventListener('change', (e) => {
       } else {
 
         uploadImg=new Image();
+        uploadImg.setAttribute('crossOrigin', 'anonymous');
         uploadImg.onload=function() {
           if(uploadImg.naturalWidth>posterWidth || uploadImg.naturalHeight>posterHeight){
             alert('上传图片宽或高不能大于海报的宽或高');
@@ -124,7 +125,7 @@ generateBtn.addEventListener('click',()=>{
   canvas.height=posterHeight;
   let ctx = canvas.getContext('2d');
   let img1=new Image();
-  img1.src='./poster.jpg';
+  img1.setAttribute('crossOrigin', 'anonymous');
   img1.onload=function(){
     ctx.drawImage(img1,0,0,posterWidth,posterHeight);
     console.log(pic.style.left);
@@ -134,9 +135,10 @@ generateBtn.addEventListener('click',()=>{
     let height=parseInt(pic.style.height);
     ctx.drawImage(uploadImg,left,top,width,height);
     let resultImg=document.createElement('img');
+    resultImg.setAttribute('crossOrigin', 'anonymous');
     resultImg.src=canvas.toDataURL('image/jpeg');
     document.body.appendChild(resultImg);
 
   }
-
+  img1.src='./poster.jpg';
 })
