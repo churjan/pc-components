@@ -72,7 +72,6 @@ function scale(){
   }
 }
 
-//以宽为基准，海报高度大于宽度的时候用
 function scale2(){
   dot.onmousedown=function(e) {
     console.log('dot')
